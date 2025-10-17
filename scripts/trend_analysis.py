@@ -58,6 +58,6 @@ with pyodbc.connect(conn_str) as conn:
         plt.xticks(rotation=45)
         plt.tight_layout()
         plt.grid(True)
-        output_path = r"D:\Python312\Python-Workflow\output\trend_plot_test.pdf"
+        output_path = rf"D:\Python312\Python-Workflow\output\{item_number}_{parameter}_{from_date}_{to_date}.pdf"
         plt.savefig(output_path)
         plt.show()
