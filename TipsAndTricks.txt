@@ -1,0 +1,50 @@
+If git commands don't work, navigate to powershell and run this code:
+
+
+$env:PATH = "D:\PortableGit\cmd;" + $env:PATH
+
+Check if it worked with: git --version
+It should return something like, "git version 2.51.0.windows.2"
+--------------------------------------------------------------
+Run this function if you want to upload your changes to git hub
+
+git-save
+
+if this doesn't work, you need to do these in powershell
+
+$PROFILE
+
+New-Item -ItemType Directory -Path (Split-Path $PROFILE) -Force
+
+notepad $PROFILE
+
+after notepad is created put this in it
+
+function git-save {
+    param(
+        [string]$message = "Quick commit"
+    )
+
+    Write-Host "Staging all changes..."
+    git add .
+
+    Write-Host "Committing with message: $message"
+    git commit -m "$message"
+
+    Write-Host "Pushing to remote repository..."
+    git push
+
+    Write-Host "✅ All done!"
+}
+
+Save and close the notepad, then try git-save again
+--------------------------------------------------------------
+This opens your project folder:
+
+cd D:\Python312\Python-Workflow
+
+replace D: with your current drive letter if it's different
+--------------------------------------------------------------
+check if python executable on the drive
+
+D:\Python312\python.exe --version
