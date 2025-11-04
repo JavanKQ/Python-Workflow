@@ -32,6 +32,7 @@ if request_type == "job material lot":
             break
         elif len(job_number) > 10:
             print("Job Number is too long. Please enter a valid Job Number.")
+            continue
         else:
             break
 
